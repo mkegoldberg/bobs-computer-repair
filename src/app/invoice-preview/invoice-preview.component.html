@@ -1,0 +1,75 @@
+<div class="bg-white">
+  <div class="section">
+    <div>
+      Services
+      <span class="float-right text-right">
+        Amount
+      </span>
+    </div>
+    <hr>
+    <div *ngFor="let service of selectedServices">
+      {{ service.serviceName}}
+      <span class="float-right text-right">
+        ${{ service.servicePrice }}
+      </span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      Additional Fees
+      <span class="float-right text-right">
+        Amount
+      </span>
+    </div>
+    <hr>
+    <div>
+      Parts
+      <span class="float-right text-right">
+        {{ toMoney(parts) }}
+      </span>
+    </div>
+    <div>
+      Labor: {{ labor }} hours &amp; $50/hr
+      <span class="float-right text-right">
+        {{ toMoney(totalLabor) }}
+      </span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      Totals
+      <span class="float-right text-right">
+        Amount
+      </span>
+    </div>
+    <hr>
+    <div>
+      Subtotal
+      <span class="float-right text-right">
+        {{ toMoney(subTotal) }}
+      </span>
+    </div>
+    <div>
+      Tax
+      <span class="float-right text-right">
+        {{ toMoney(tax) }}
+      </span>
+    </div>
+  </div>
+
+  <div class="section">
+    <hr>
+    <div class="total">
+      Total Cost
+      <span class="float-right text-right">
+        {{ toMoney(total) }}
+      </span>
+    </div>
+  </div>
+
+  <div class="action-btns">
+    <button mat-button class="btn btn-hollow" matDialogClose="confirm">Close</button>
+  </div>
+</div>

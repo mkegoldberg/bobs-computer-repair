@@ -1,0 +1,31 @@
+hr {
+  margin-bottom: 1.5rem;
+}
+.input-checkbox {
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.btn-main {
+  float: right;
+  width: 33.333%;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .btn-main {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 40em) and (max-width: 1020px) {
+  .btn-main {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 40em) {
+  form.service-selection {
+    flex-direction: row!important;
+    flex-wrap: wrap;
+  }
+}

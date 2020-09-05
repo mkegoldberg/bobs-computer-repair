@@ -1,0 +1,33 @@
+<app-hero></app-hero>
+
+<div class="container">
+  <div class="section">
+    <h2>Services</h2>
+    <div class="warning" *ngIf="showSelectedWarning">*You must make a selection</div>
+    <form fxLayout="column" class="service-selection">
+        <mat-checkbox *ngFor="let service of serviceList" [value]="service" class="input-checkbox" (change)="handleSelection($event, service)">
+          {{ service.serviceName }}
+          <span class="label-sub">
+            ${{ service.servicePrice }}
+          </span>
+        </mat-checkbox>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Parts & Fees</h2>
+    <div class="warning" *ngIf="showAddedCostWarning">*You must add values</div>
+    <form fxLayout="column" [formGroup]="addedCosts">
+      <label for="parts">Parts:</label>
+      <input type="number" name="parts" id="parts" formControlName="parts" placeholder="Enter dollar amount" required/>
+
+      <label for="parts">Labor:</label>
+      <input type="number" name="labor" id="labor" formControlName="labor" placeholder="Number of hours @ $55/hr" required/>
+    </form>
+  </div>
+
+  <div class="section">
+    <hr>
+    <button mat-button class="btn btn-main" (click)="createInvoice()">Preview Invoice</button>
+  </div>
+</div>

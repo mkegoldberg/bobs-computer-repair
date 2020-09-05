@@ -1,0 +1,13 @@
+.section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.total {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.btn-hollow {
+  width: 100%;
+}

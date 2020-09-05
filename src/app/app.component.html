@@ -1,0 +1,21 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row class="container">
+    <div class="logo">
+      <button mat-button routerLink="/">Bob's Repairs</button>
+    </div>
+    <div>
+      <div fxLayout="row wrap" fxLayoutAlign="end start">
+        <button mat-button routerLink="/">About</button>
+        <button mat-button routerLink="/">Services</button>
+        <button mat-button routerLink="/">Contact Us</button>
+        <button mat-button routerLink="/">
+          <mat-icon color="primary">shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
