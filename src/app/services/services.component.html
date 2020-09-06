@@ -4,8 +4,8 @@
   <div class="section">
     <h2>Services</h2>
     <div class="warning" *ngIf="showSelectedWarning">*You must make a selection</div>
-    <form fxLayout="column" class="service-selection">
-        <mat-checkbox *ngFor="let service of serviceList" [value]="service" class="input-checkbox" (change)="handleSelection($event, service)">
+    <form fxLayout="column" class="service-selection" [formGroup]="serviceGroup">
+        <mat-checkbox *ngFor="let service of serviceList" [value]="service" [checked]="true" class="input-checkbox" [formControlName]="service.serviceNumber" (change)="handleSelection($event, service)">
           {{ service.serviceName }}
           <span class="label-sub">
             ${{ service.servicePrice }}

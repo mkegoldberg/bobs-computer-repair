@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 import { InvoicePreviewComponent } from '../invoice-preview/invoice-preview.component';
 import { Service } from '../service';
 import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-services',
@@ -25,7 +25,7 @@ export class ServicesComponent implements OnInit {
   showAddedCostWarning: boolean;
   serviceList: Service[] = [];
   selectedServices: Service[] = [];
-  selected: FormGroup;
+  serviceGroup: FormGroup;
   addedCosts: FormGroup;
 
   constructor(private fb: FormBuilder, private dialog: MatDialog) {
@@ -43,6 +43,16 @@ export class ServicesComponent implements OnInit {
 
     this.showSelectedWarning = false;
     this.showAddedCostWarning = false;
+
+    this.serviceGroup = this.fb.group({
+      10001: new FormControl(),
+      10002: new FormControl(),
+      10003: new FormControl(),
+      10004: new FormControl(),
+      10005: new FormControl(),
+      10006: new FormControl(),
+      10007: new FormControl(),
+    });
 
     this.addedCosts = this.fb.group({
       parts: ['', Validators.required],
@@ -86,10 +96,34 @@ export class ServicesComponent implements OnInit {
           parts: parts,
           labor: labor
         },
-        disableClose: false,
-        width: '800px'
-      })
+        disableClose: true,
+        width: '90%',
+        maxWidth: '800px'
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === "confirm") {
+          this.resetForm();
+        }
+      });
     }
+  }
+
+  resetForm() {
+    this.addedCosts = this.fb.group({
+      parts: ['', Validators.required],
+      labor: ['', Validators.required]
+    });
+    this.serviceGroup = this.fb.group({
+      10001: new FormControl(),
+      10002: new FormControl(),
+      10003: new FormControl(),
+      10004: new FormControl(),
+      10005: new FormControl(),
+      10006: new FormControl(),
+      10007: new FormControl(),
+    });
+    this.selectedServices = [];
   }
 
 }
